@@ -742,7 +742,14 @@ else:
 # DISPLAY TABLES (SAFE)
 # ==========================================
 
-st.markdown("### ✅ CMBS Subgroup Results")
+st.markdown(
+    """
+    <h4 style='text-align:center; color:#0b2e73;'>
+        CMBS Subgroup Results
+    </h4>
+    """,
+    unsafe_allow_html=True
+)
 
 if dataset_choice in ["Bike Dataset - Day", "Bike Dataset - Hour"]:
 
