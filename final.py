@@ -636,54 +636,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ==========================================
-# DISPLAY TABLES
-# ==========================================
-
-st.markdown(
-    """
-    <h4 style='
-        text-align:center;
-        color:#0b2e73;
-        font-size:12px;
-        font-weight:600;
-        line-height:2.0;
-    '>
-        Subgroup RMSE Results
-    </h4>
-    """,
-    unsafe_allow_html=True
-)
-
-if dataset_choice in ["Bike Dataset - Day", "Bike Dataset - Hour"]:
-
-    c1, c2, c3 = st.columns(3)
-
-    with c1:
-        st.markdown("**Season RMSE**")
-        st.dataframe(season_rmse, use_container_width=True)
-
-    with c2:
-        st.markdown("**Weather Situation RMSE**")
-        st.dataframe(weather_rmse, use_container_width=True)
-
-    with c3:
-        st.markdown("**Working Day RMSE**")
-        st.dataframe(working_rmse, use_container_width=True)
-
-else:
-
-    c1, c2 = st.columns(2)
-
-    with c1:
-        st.markdown("**Temperature Bin RMSE**")
-        st.dataframe(temp_rmse, use_container_width=True)
-
-    with c2:
-        st.markdown("**Humidity Bin RMSE**")
-        st.dataframe(hum_rmse, use_container_width=True)
-
-
 
 
 ##############################################
