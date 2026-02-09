@@ -471,9 +471,10 @@ st.markdown(
     <h4 style='
         text-align:center;
         color:#0b2e73;
-        font-size:18px;
+        font-size:16px;        /* 👈 slightly smaller heading */
         font-weight:600;
-        line-height:1.5;
+        line-height:1.3;      /* 👈 tighter line spacing */
+        margin-bottom:8px;    /* 👈 space before table */
     '>
         Baseline R² Scores (Higher is Better)
     </h4>
@@ -482,10 +483,13 @@ st.markdown(
 )
 
 st.dataframe(
-    perf_df[["Model", "R2 Score"]].sort_values("R2 Score", ascending=False),
-    use_container_width=True,
-    height=180
+    perf_df[["Model", "R2 Score"]]
+        .sort_values("R2 Score", ascending=False)
+        .reset_index(drop=True),   # 👈 removes extra index column
+    use_container_width=False,     # 👈 prevents full-width stretch
+    height=140                     # 👈 smaller table height
 )
+
 
 ##############################################
 # BLIND SPOT ANALYSIS
