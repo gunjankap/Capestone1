@@ -442,7 +442,11 @@ st.pyplot(fig)
 # ----------------------------------------------------
 
 st.markdown(
-    "<h6 style='text-align:center; font-size:14px;'>Baseline R² Scores (Higher is Better)</h6>",
+    """
+    <h4 style='text-align:center; color:#0b2e73;'>
+        Baseline R² Scores (Higher is Better)
+    </h4>
+    """,
     unsafe_allow_html=True
 )
 
