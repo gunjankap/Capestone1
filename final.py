@@ -202,12 +202,18 @@ with c3:
 ##############################################
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:16px;
+        font-weight:600;
+    '>
         Model Performance Diagnostics
     </h4>
     """,
     unsafe_allow_html=True
 )
+
 
 c1, c2, c3 = st.columns(3)
 
