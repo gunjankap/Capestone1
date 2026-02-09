@@ -493,6 +493,7 @@ st.markdown(
         text-align:center;
         color:#0b2e73;
         font-size:18px;
+        line-height:1.5;
         font-weight:600;
     '>
         Blind Spot / Subgroup Error Analysis
@@ -575,6 +576,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         Subgroup RMSE Results
     </h4>
@@ -641,6 +643,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         Subgroup RMSE Results
     </h4>
@@ -689,6 +692,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         CMBS — Collective Model Blind Spot Check
     </h4>
