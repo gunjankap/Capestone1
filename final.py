@@ -578,7 +578,7 @@ st.markdown(
     <h4 style='
         text-align:center;
         color:#0b2e73;
-        font-size:18px;
+        font-size:12px;
         font-weight:600;
         line-height:2.0;
     '>
@@ -645,7 +645,7 @@ st.markdown(
     <h4 style='
         text-align:center;
         color:#0b2e73;
-        font-size:18px;
+        font-size:12px;
         font-weight:600;
         line-height:2.0;
     '>
@@ -802,7 +802,7 @@ st.markdown(
     <h4 style='
         text-align:center;
         color:#0b2e73;
-        font-size:18px;
+        font-size:12px;
         font-weight:600;
         line-height:2.0;
     '>
