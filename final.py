@@ -151,7 +151,7 @@ model, preds = build_model(model_choice)
 
 st.markdown(
     f"""
-    <div style="font-size:18px; font-weight:600; padding:8px; 
+    <div style="font-size:15px; font-weight:400; padding:8px; 
                 border-radius:8px; background:#f7f9fc;">
         Dataset: <span style="color:#2e7fe8">{dataset_choice}</span> |
         Model: <span style="color:#2e7fe8">{model_choice}</span> |
@@ -162,7 +162,7 @@ st.markdown(
 )
 
 st.markdown(f"""
-<div style="font-size:12px; padding:8px; background:#ffffff;
+<div style="font-size:10px; padding:8px; background:#ffffff;
             border:1px dashed #d6e1ff;">
 <b>Data Snapshot</b><br>
 • Records: {df.shape[0]}<br>
