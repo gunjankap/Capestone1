@@ -426,7 +426,7 @@ sns.barplot(
     x="Model",
     y="RMSE",
     ax=ax,
-    width=0.45   # 👈 thinner bars (default is ~0.8)
+    width=0.35   # 👈 thinner bars (default is ~0.8)
 )
 
 
