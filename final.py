@@ -425,8 +425,10 @@ sns.barplot(
     data=perf_df,
     x="Model",
     y="RMSE",
-    ax=ax
+    ax=ax,
+    width=0.45   # 👈 thinner bars (default is ~0.8)
 )
+
 
 ax.set_title("Baseline RMSE Comparison Across Models", fontsize=11)
 ax.set_ylabel("RMSE (Lower is Better)")
