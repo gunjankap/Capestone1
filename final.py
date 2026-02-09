@@ -440,7 +440,11 @@ st.pyplot(fig)
 # ----------------------------------------------------
 # Display R² as Table (Compact)
 # ----------------------------------------------------
-st.markdown("### Baseline R² Scores (Higher is Better)")
+
+st.markdown(
+    "<h6 style='text-align:center; font-size:14px;'>Baseline R² Scores (Higher is Better)</h6>",
+    unsafe_allow_html=True
+)
 
 st.dataframe(
     perf_df[["Model", "R2 Score"]].sort_values("R2 Score", ascending=False),
