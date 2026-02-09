@@ -205,7 +205,7 @@ st.markdown(
     <h4 style='
         text-align:center;
         color:#0b2e73;
-        font-size:16px;
+        font-size:18px;
         font-weight:600;
     '>
         Model Performance Diagnostics
@@ -291,14 +291,21 @@ if model_choice == "Random Forest (Ensemble)":
 ##############################################
 # FIGURE 5.1 — GLOBAL FEATURE INFLUENCE ACROSS MODELS
 ##############################################
+
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
-        Global Feature Influence Across Models
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
+        Global Feature Influence Across Mode
     </h4>
     """,
     unsafe_allow_html=True
 )
+
 
 st.markdown(
     """
@@ -367,13 +374,17 @@ st.pyplot(fig)
 
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
         Aggregate Baseline Performance Comparison Across Models
     </h4>
     """,
     unsafe_allow_html=True
 )
-
 st.markdown(
     """
     <div style="font-size:13px; padding:10px;
@@ -449,7 +460,12 @@ st.pyplot(fig)
 
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
         Baseline R² Scores (Higher is Better)
     </h4>
     """,
@@ -465,11 +481,17 @@ st.dataframe(
 ##############################################
 # BLIND SPOT ANALYSIS
 ##############################################
+
 st.markdown(
     """
-    <h5 style='color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
         Blind Spot / Subgroup Error Analysis
-    </h5>
+    </h4>
     """,
     unsafe_allow_html=True
 )
@@ -541,10 +563,14 @@ st.markdown("""
 # DISPLAY TABLES
 # ==========================================
 
-
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
         Subgroup RMSE Results
     </h4>
     """,
@@ -602,9 +628,15 @@ st.markdown("""
 # ==========================================
 # DISPLAY TABLES
 # ==========================================
+
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
         Subgroup RMSE Results
     </h4>
     """,
@@ -645,12 +677,16 @@ else:
 ##############################################
 # CMBS CHECK — Collective Model Blind Spot
 ##############################################
-
 st.markdown(
     """
-    <h5 style='color:#0b2e73;'>
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
         CMBS — Collective Model Blind Spot Check
-    </h5>
+    </h4>
     """,
     unsafe_allow_html=True
 )
@@ -750,12 +786,18 @@ else:
 
 st.markdown(
     """
-    <h4 style='text-align:center; color:#0b2e73;'>
-        CMBS Subgroup Results
+    <h4 style='
+        text-align:center;
+        color:#0b2e73;
+        font-size:18px;
+        font-weight:600;
+    '>
+         CMBS Subgroup Results
     </h4>
     """,
     unsafe_allow_html=True
 )
+
 
 if dataset_choice in ["Bike Dataset - Day", "Bike Dataset - Hour"]:
 
