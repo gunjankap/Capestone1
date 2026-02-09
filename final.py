@@ -207,6 +207,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         Model Performance Diagnostics
     </h4>
@@ -299,6 +300,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         Global Feature Influence Across Mode
     </h4>
@@ -379,6 +381,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         Aggregate Baseline Performance Comparison Across Models
     </h4>
@@ -470,6 +473,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
         Baseline R² Scores (Higher is Better)
     </h4>
@@ -800,6 +804,7 @@ st.markdown(
         color:#0b2e73;
         font-size:18px;
         font-weight:600;
+        line-height:1.5;
     '>
          CMBS Subgroup Results
     </h4>
