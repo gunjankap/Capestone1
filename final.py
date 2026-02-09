@@ -435,23 +435,28 @@ perf_df = pd.DataFrame(results)
 # ----------------------------------------------------
 # Plot Performance Comparison
 # ----------------------------------------------------
+# ----------------------------------------------------
+# Plot Performance Comparison
+# ----------------------------------------------------
 fig, ax = plt.subplots(figsize=(7,4))
 
-# RMSE bar plot
 sns.barplot(
     data=perf_df,
     x="Model",
     y="RMSE",
     ax=ax,
-    width=0.35   # 👈 thinner bars (default is ~0.8)
+    width=0.35
 )
 
-
-ax.set_title("Baseline RMSE Comparison Across Models", fontsize=11)
-ax.set_ylabel("RMSE (Lower is Better)")
+# 👇 Decrease fonts here
+ax.set_title("Baseline RMSE Comparison Across Models", fontsize=10)
+ax.set_ylabel("RMSE (Lower is Better)", fontsize=9)
 ax.set_xlabel("")
-ax.tick_params(axis='x', rotation=20)
 
+ax.tick_params(axis='x', labelsize=8, rotation=20)
+ax.tick_params(axis='y', labelsize=8)
+
+plt.tight_layout()
 st.pyplot(fig)
 
 # ----------------------------------------------------
