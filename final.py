@@ -77,7 +77,7 @@ aqi_raw, aqi = load_aqi()
 ##############################################
 # Sidebar
 ##############################################
-st.sidebar.title("📊 AI Model Analysis")
+st.sidebar.title("AI Model Analysis")
 
 dataset_choice = st.sidebar.selectbox(
     "Choose Dataset",
@@ -203,7 +203,7 @@ with c3:
 st.markdown(
     """
     <h4 style='text-align:center; color:#0b2e73;'>
-        📊 Model Performance Diagnostics
+        Model Performance Diagnostics
     </h4>
     """,
     unsafe_allow_html=True
@@ -288,7 +288,7 @@ if model_choice == "Random Forest (Ensemble)":
 st.markdown(
     """
     <h4 style='text-align:center; color:#0b2e73;'>
-        🌍 Global Feature Influence Across Models
+        Global Feature Influence Across Models
     </h4>
     """,
     unsafe_allow_html=True
@@ -462,7 +462,7 @@ st.dataframe(
 st.markdown(
     """
     <h5 style='color:#0b2e73;'>
-        ⚠️ Blind Spot / Subgroup Error Analysis
+        Blind Spot / Subgroup Error Analysis
     </h5>
     """,
     unsafe_allow_html=True
@@ -539,7 +539,7 @@ st.markdown("""
 st.markdown(
     """
     <h4 style='text-align:center; color:#0b2e73;'>
-        📌 Subgroup RMSE Results
+        Subgroup RMSE Results
     </h4>
     """,
     unsafe_allow_html=True
@@ -599,7 +599,7 @@ st.markdown("""
 st.markdown(
     """
     <h4 style='text-align:center; color:#0b2e73;'>
-        📌 Subgroup RMSE Results
+        Subgroup RMSE Results
     </h4>
     """,
     unsafe_allow_html=True
@@ -643,7 +643,7 @@ else:
 st.markdown(
     """
     <h5 style='color:#0b2e73;'>
-        🧠 CMBS — Collective Model Blind Spot Check
+        CMBS — Collective Model Blind Spot Check
     </h5>
     """,
     unsafe_allow_html=True
