@@ -226,6 +226,17 @@ st.markdown(f"""
 # Metrics
 ##############################################
 
+# ---- SAFETY: ensure preds exists before metrics ----
+try:
+    model, preds = build_model(model_choice)
+except Exception as e:
+    st.error(f"Model training failed: {e}")
+    st.stop()
+
+if preds is None or len(np.atleast_1d(preds)) == 0:
+    st.error("Predictions were not generated. Check model selection and training.")
+    st.stop()
+
 mae = round(mean_absolute_error(y_test, preds),2)
 rmse = round(np.sqrt(mean_squared_error(y_test, preds)),2)
 r2 = round(r2_score(y_test, preds),3)
