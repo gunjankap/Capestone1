@@ -15,7 +15,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
-
+from sklearn.neural_network import MLPRegressor
 
 
 # ---------- STUDENT & PROJECT HEADER ----------
@@ -86,8 +86,27 @@ dataset_choice = st.sidebar.selectbox(
 
 model_choice = st.sidebar.selectbox(
     "Choose Model", 
-    ["Linear Regression", "Decision Tree", "Random Forest (Ensemble)"]
+    ["Linear Regression", "Decision Tree", "Random Forest (Ensemble)", "Neural Network (MLP)"]
 )
+
+mlp_params = None
+if model_choice == "Neural Network (MLP)":
+    st.sidebar.markdown("### MLP Settings")
+
+    h1 = st.sidebar.slider("Hidden Layer 1", 16, 256, 64, step=16)
+    h2 = st.sidebar.slider("Hidden Layer 2", 0, 256, 32, step=16)  # 0 means no 2nd layer
+    hidden_layers = (h1,) if h2 == 0 else (h1, h2)
+
+    activation = st.sidebar.selectbox("Activation", ["relu", "tanh", "logistic"])
+    alpha = st.sidebar.number_input("L2 penalty (alpha)", value=0.0001, format="%.6f")
+    max_iter = st.sidebar.slider("Max Iterations", 200, 2000, 800, step=100)
+
+    mlp_params = {
+        "hidden_layer_sizes": hidden_layers,
+        "activation": activation,
+        "alpha": alpha,
+        "max_iter": max_iter
+    }
 
 ##############################################
 # DATASET HANDLING
@@ -135,19 +154,36 @@ def build_model(name):
         model.fit(X_train, y_train)
         preds = model.predict(X_test)
 
-    else:
+    elif name == "Random Forest (Ensemble)":
         model = RandomForestRegressor(n_estimators=220, random_state=42)
         model.fit(X_train, y_train)
         preds = model.predict(X_test)
 
+    elif name == "Neural Network (MLP)":
+        params = mlp_params or {}
+        model = MLPRegressor(
+            hidden_layer_sizes=params.get("hidden_layer_sizes", (64, 32)),
+            activation=params.get("activation", "relu"),
+            alpha=params.get("alpha", 0.0001),
+            max_iter=params.get("max_iter", 800),
+            random_state=42,
+            early_stopping=True,
+            n_iter_no_change=15
+        )
+        # IMPORTANT: MLP should use scaled features
+        model.fit(X_train_s, y_train)
+        preds = model.predict(X_test_s)
+
+    else:
+        raise ValueError("Unknown model selected")
+
     return model, preds
 
-model, preds = build_model(model_choice)
 
 
 ##############################################
 # UI Layout
-##############################################)
+##############################################
 
 st.markdown(
     f"""
