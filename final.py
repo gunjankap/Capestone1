@@ -768,25 +768,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("""
-<style>
-/* Reduce table font size */
-.dataframe {
-    font-size: 12px !important;
-}
-
-/* Reduce cell padding */
-.dataframe th, .dataframe td {
-    padding: 4px 8px !important;
-}
-
-/* Reduce row height */
-.dataframe tbody tr {
-    height: 28px !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
 if dataset_choice in ["Bike Dataset - Day", "Bike Dataset - Hour"]:
 
     c1, c2, c3 = st.columns(3)
