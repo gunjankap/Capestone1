@@ -84,29 +84,38 @@ dataset_choice = st.sidebar.selectbox(
     ["Bike Dataset - Day", "Bike Dataset - Hour", "AQI"]
 )
 
-model_choice = st.sidebar.selectbox(
-    "Choose Model", 
-    ["Linear Regression", "Decision Tree", "Random Forest (Ensemble)", "Neural Network (MLP)"]
-)
+MODEL_OPTIONS = [
+    "Linear Regression",
+    "Decision Tree",
+    "Random Forest (Ensemble)",
+    "Neural Network (MLP)"
+]
 
-mlp_params = None
+model_choice = st.sidebar.selectbox("Choose Model", MODEL_OPTIONS)
+
+
+mlp_params = {
+    "hidden_layer_sizes": (64, 32),
+    "activation": "relu",
+    "alpha": 0.0001,
+    "max_iter": 800
+}
+
 if model_choice == "Neural Network (MLP)":
     st.sidebar.markdown("### MLP Settings")
-
     h1 = st.sidebar.slider("Hidden Layer 1", 16, 256, 64, step=16)
-    h2 = st.sidebar.slider("Hidden Layer 2", 0, 256, 32, step=16)  # 0 means no 2nd layer
-    hidden_layers = (h1,) if h2 == 0 else (h1, h2)
-
+    h2 = st.sidebar.slider("Hidden Layer 2 (0 = off)", 0, 256, 32, step=16)
     activation = st.sidebar.selectbox("Activation", ["relu", "tanh", "logistic"])
     alpha = st.sidebar.number_input("L2 penalty (alpha)", value=0.0001, format="%.6f")
     max_iter = st.sidebar.slider("Max Iterations", 200, 2000, 800, step=100)
 
     mlp_params = {
-        "hidden_layer_sizes": hidden_layers,
+        "hidden_layer_sizes": (h1,) if h2 == 0 else (h1, h2),
         "activation": activation,
         "alpha": alpha,
         "max_iter": max_iter
     }
+
 
 ##############################################
 # DATASET HANDLING
@@ -143,6 +152,8 @@ X_test_s = scaler.transform(X_test)
 ##############################################
 # Train Models
 ##############################################
+
+
 def build_model(name):
     if name == "Linear Regression":
         model = LinearRegression()
@@ -160,24 +171,26 @@ def build_model(name):
         preds = model.predict(X_test)
 
     elif name == "Neural Network (MLP)":
-        params = mlp_params or {}
         model = MLPRegressor(
-            hidden_layer_sizes=params.get("hidden_layer_sizes", (64, 32)),
-            activation=params.get("activation", "relu"),
-            alpha=params.get("alpha", 0.0001),
-            max_iter=params.get("max_iter", 800),
+            hidden_layer_sizes=mlp_params["hidden_layer_sizes"],
+            activation=mlp_params["activation"],
+            alpha=mlp_params["alpha"],
+            max_iter=mlp_params["max_iter"],
             random_state=42,
             early_stopping=True,
             n_iter_no_change=15
         )
-        # IMPORTANT: MLP should use scaled features
         model.fit(X_train_s, y_train)
         preds = model.predict(X_test_s)
 
     else:
-        raise ValueError("Unknown model selected")
+        # fallback to avoid preds undefined
+        model = LinearRegression()
+        model.fit(X_train, y_train)
+        preds = model.predict(X_test)
 
     return model, preds
+
 
 
 
