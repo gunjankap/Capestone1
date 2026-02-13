@@ -413,6 +413,10 @@ nn_model = MLPRegressor(
     random_state=42
 ).fit(X_train_scaled, y_train)
 
+lr_preds = lr_model.predict(X_test)
+tree_preds = tree_model.predict(X_test)
+rf_preds = rf_model.predict(X_test)
+nn_preds = nn_model.predict(X_test_scaled)
 # -----------------------------
 # Extract Feature Influence
 # -----------------------------
