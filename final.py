@@ -362,7 +362,7 @@ st.markdown(
         font-weight:600;
         line-height:1.5;
     '>
-        Global Feature Influence Across Model
+        Global Feature Influence Across Models
     </h4>
     """,
     unsafe_allow_html=True
