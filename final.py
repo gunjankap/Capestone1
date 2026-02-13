@@ -384,11 +384,34 @@ st.markdown(
 )
 
 # -----------------------------
-# Train all 3 models for comparison
+# Scale data (important for Neural Network)
+# -----------------------------
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# -----------------------------
+# Train all 4 models for comparison
 # -----------------------------
 lr_model = LinearRegression().fit(X_train, y_train)
-tree_model = DecisionTreeRegressor(max_depth=8).fit(X_train, y_train)
-rf_model = RandomForestRegressor(n_estimators=200, random_state=42).fit(X_train, y_train)
+
+tree_model = DecisionTreeRegressor(
+    max_depth=8,
+    random_state=42
+).fit(X_train, y_train)
+
+rf_model = RandomForestRegressor(
+    n_estimators=200,
+    random_state=42
+).fit(X_train, y_train)
+
+nn_model = MLPRegressor(
+    hidden_layer_sizes=(64, 32),
+    activation='relu',
+    solver='adam',
+    max_iter=1000,
+    random_state=42
+).fit(X_train_scaled, y_train)
 
 # -----------------------------
 # Extract Feature Influence
